@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD21D53C-17BF-4F36-B58E-FE731A002725}</ProjectGuid>
+    <Name>DeploymentPortfolioInstaller</Name>
+    <OutputName>DeploymentPortfolioInstaller</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "><OutputPath>bin\Debug\</OutputPath></PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "><OutputPath>bin\Release\</OutputPath></PropertyGroup>
+  <ItemGroup><Compile Include="Product.wxs" /></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\DeploymentPortfolioDemo\DeploymentPortfolioDemo.csproj"><Name>DeploymentPortfolioDemo</Name><Project>{5AC46B95-0DCA-4FCE-8274-CA52F74D564A}</Project><Private>True</Private><DoNotHarvest>True</DoNotHarvest><RefProjectOutputGroups>Binaries;Content;SatelliteDlls</RefProjectOutputGroups></ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+</Project>

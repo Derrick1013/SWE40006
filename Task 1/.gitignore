@@ -1,0 +1,22 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.msi
+*.cab
+*.pdb
+
+# Visual Studio user files
+.vs/
+*.user
+*.suo
+
+# Signing material - do not publish private certificates
+*.pfx
+*.snk
+
+# Local report drafts and screenshots
+docs/

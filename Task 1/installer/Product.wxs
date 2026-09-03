@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="Deployment Portfolio Demo" Language="1033" Version="1.0.0.0"
+           Manufacturer="Song Jun Cheng" UpgradeCode="B052B44A-767E-4A22-9A59-6F2ED89E9D01">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Feature Id="MainFeature" Title="Deployment Portfolio Demo" Level="1">
+      <ComponentRef Id="ApplicationExecutable" />
+      <ComponentRef Id="CoreLibrary" />
+      <ComponentRef Id="DiagnosticsLibrary" />
+    </Feature>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="Deployment Portfolio Demo">
+          <Component Id="ApplicationExecutable" Guid="E560316C-7673-41AC-ACEC-D85941AA1F6B">
+            <File Id="DeploymentPortfolioDemoExe" Source="$(var.DeploymentPortfolioDemo.TargetDir)DeploymentPortfolioDemo.exe" KeyPath="yes" />
+          </Component>
+          <Component Id="CoreLibrary" Guid="BF9B9F33-7CCB-4B61-86F1-BB65DBB96EF5">
+            <File Id="DeploymentPortfolioCoreDll" Source="$(var.DeploymentPortfolioDemo.TargetDir)DeploymentPortfolio.Core.dll" KeyPath="yes" />
+          </Component>
+          <Component Id="DiagnosticsLibrary" Guid="FF2D1FBA-11FD-4AE2-83F6-68A1C2C6CB7A">
+            <File Id="DeploymentPortfolioDiagnosticsDll" Source="$(var.DeploymentPortfolioDemo.TargetDir)DeploymentPortfolio.Diagnostics.dll" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Product>
+</Wix>
