@@ -17,6 +17,3 @@ x86/
 # Signing material - do not publish private certificates
 *.pfx
 *.snk
-
-# Local report drafts and screenshots
-docs/
